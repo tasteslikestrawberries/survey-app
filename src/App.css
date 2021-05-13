@@ -80,9 +80,7 @@ html {
     border: 1px solid #e2dfdf;
     border-radius: 50px;
   }
-  .icon:active{
-    background-color: #FFD954;
-  }
+  
   .hr {
       margin-top:1rem;
       width: 30vw;
@@ -94,24 +92,11 @@ html {
   .surveyHeader {
       color: #FFD954;
       font-weight:bold;
-      border: 1px solid #e2dfdf;
-      width: fit-content;
-      margin:auto;
+      text-align:center;
       margin-top: 4em;
       margin-bottom: 2rem;
-      border-radius: 10px;
   }
 
-  .surveyHeaderFlex {
-      display:flex;
-      align-items:center;
-      justify-content: space-evenly;
-  }
-
-  .surveyHeadline {
-    color: #FFD954;
-    padding: 1rem;
-  }
   .headerIcon {
     /* display: none; must show on surveryHeader hover*/
     z-index: 10;
@@ -120,6 +105,15 @@ html {
     border: 1px solid #e2dfdf;
     box-shadow: 1px 1px 1px 1px rgba(206, 203, 203, 0.2);
     border-radius: 50px;
+  }
+
+  form {
+    text-align:center;
+  }
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #FFD954;
+    text-align: center;
   }
 
   /*RESULTS*/

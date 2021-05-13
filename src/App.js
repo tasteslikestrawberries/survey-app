@@ -13,7 +13,9 @@ import StepSelector from './components/stepselector';
 import Results from './components/results';
 
 //styles
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 
 //assets
 

@@ -3,7 +3,6 @@ import Graph from './graph';
 
 //styles
 import Table from 'react-bootstrap/Table'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 //icons
 import { Icon } from '@iconify/react';
@@ -15,7 +14,7 @@ import fileTypeExcel2 from '@iconify/icons-vscode-icons/file-type-excel2';
         <>
         <div className='container'>
             <div className='excel'><Icon icon={fileTypeExcel2} style={{fontSize: '32px'}} /> Preuzmi excel datoteku</div>
-            <div className='surveyHeader' style={{border: 'none'}} >
+            <div className='surveyHeader'>
                 Upitnik o zadovoljstvu provedenom edukacijom
             </div>
             <div className='resultsContainer'>

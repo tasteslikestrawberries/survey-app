@@ -13,7 +13,7 @@ const NewSurvey = () => {
         <div className='container'>
         <div className='surveyHeader'>
         <div className='surveyHeaderFlex'>
-        <div className='surveyHeadline' style={{padding:10}}> Započni izradu </div>
+        <div className='surveyHeadline' style={{padding:10}}> Nova anketa </div>
         <Icon className='headerIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', margin:5}} />
     </div>
 </div>

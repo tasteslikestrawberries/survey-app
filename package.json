@@ -1,17 +1,26 @@
 {
-  "name": "monogit",
+  "homepage": "http://tasteslikestrawberries.github.io",
+  "name": "survey-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
+    "bootstrap": "^4.6.0",
+    "gh-pages": "^3.1.0",
+    "mdbreact": "^5.0.2",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.0",
     "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +43,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify/icons-codicon": "^1.1.15",
+    "@iconify/icons-mdi": "^1.1.15",
+    "@iconify/icons-vscode-icons": "^1.1.4",
+    "@iconify/react": "^1.1.4"
   }
 }

@@ -13,7 +13,6 @@ import fileTypeExcel2 from '@iconify/icons-vscode-icons/file-type-excel2';
 
     return (
         <>
-
         <div className='container'>
             <div className='excel'><Icon icon={fileTypeExcel2} style={{fontSize: '32px'}} /> Preuzmi excel datoteku</div>
             <div className='surveyHeader' style={{border: 'none'}} >

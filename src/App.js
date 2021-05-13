@@ -2,20 +2,18 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 
 //components
 import Header from './components/header';
-import Survey from './components/survey';
+import Nav from './components/navigation';
+import NewSurvey from './components/newsurvey';
 import StepSelector from './components/stepselector';
 import Results from './components/results';
 
 //styles
 import './App.css';
-
-//icons
-/*import { Icon } from '@iconify/react';*/
 
 //assets
 
@@ -25,20 +23,19 @@ function App() {
     <Router>
     <>
     <Header />
-
+    <Nav />
     <StepSelector />
-      <Switch>
-       
-        <Route path='/results'>
-          <Results />
-        </Route>
+          <Switch>
+          
+            <Route path='/results'>
+              <Results />
+            </Route>
 
-        <Route>
-          <Survey />
-        </Route>
+            <Route path='/'>
+              <NewSurvey />
+            </Route>
 
-      </Switch>
-     
+          </Switch>
     </>
     </Router>
    

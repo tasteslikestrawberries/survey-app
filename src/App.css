@@ -8,9 +8,10 @@ html {
     box-sizing: inherit;
   }
 
-  a, a:hover, a:active {
-      text-decoration:none;
-  }
+  a, a:hover, a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
 
   body {
     margin:0;
@@ -43,12 +44,8 @@ html {
     background-color: #ffff;
   }
 
-  .breadcrumb-item a {
-    color: #6c757d;
-  }
-
-  .breadcrumb-item.active {
-    color: #FFD954;
+  .breadcrumb>.active {
+    color:#FFD954;
   }
 
   .container {
@@ -83,6 +80,9 @@ html {
     border: 1px solid #e2dfdf;
     border-radius: 50px;
   }
+  .icon:active{
+    background-color: #FFD954;
+  }
   .hr {
       margin-top:1rem;
       width: 30vw;
@@ -110,6 +110,7 @@ html {
 
   .surveyHeadline {
     color: #FFD954;
+    padding: 1rem;
   }
   .headerIcon {
     /* display: none; must show on surveryHeader hover*/
@@ -147,6 +148,7 @@ html {
   .excel {
     float:right;
     font-size:12px;
+    cursor:pointer;
   }
 
   @media (min-width: 60rem) { 
@@ -157,6 +159,13 @@ html {
     .header {
       padding-top:2rem;
     }
+
+    .stepSelectorText{
+      width: 46%;
+      column-gap: 2rem;
+      font-size:12px;
+    }
+
     .container {
       box-sizing: border-box;
     border: 2px solid #f0eded;
@@ -172,3 +181,4 @@ html {
       margin-bottom: 3rem;
     }
   }
+

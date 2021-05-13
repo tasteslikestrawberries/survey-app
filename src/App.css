@@ -18,11 +18,9 @@ html {
     font-family: 'Roboto', sans-serif;    
     letter-spacing: 0.02em;
     color:#6c757d;
-    padding:0 5rem;
   }
 
   .header {
-    padding-top:2rem;
       width:fit-content;
   }
 
@@ -59,7 +57,6 @@ html {
     box-shadow: 3px 3px 3px 3px rgba(206, 203, 203, 0.2);
     margin: auto;
     height: fit-content;
-    margin-bottom: 5rem;
     padding:2rem;
   }
 
@@ -67,7 +64,7 @@ html {
     margin:auto;
     display:flex;
     justify-content: center;
-    padding-top: 1rem;
+  
   }
 
   .stepSelectorText {
@@ -95,13 +92,13 @@ html {
 
   /*SURVEY*/
   .surveyHeader {
-      padding: 1rem;
       color: #FFD954;
       font-weight:bold;
       border: 1px solid #e2dfdf;
       width: fit-content;
-      align-items:center;
-      margin:2rem auto;
+      margin:auto;
+      margin-top: 4em;
+      margin-bottom: 2rem;
       border-radius: 10px;
   }
 
@@ -140,6 +137,7 @@ html {
   }
 
   .table {
+    box-sizing: border-box;
     color:#6c757d;
   }
   .tableHeader {
@@ -151,3 +149,26 @@ html {
     font-size:12px;
   }
 
+  @media (min-width: 60rem) { 
+    body {
+      padding:0 5rem;
+    }
+
+    .header {
+      padding-top:2rem;
+    }
+    .container {
+      box-sizing: border-box;
+    border: 2px solid #f0eded;
+    box-shadow: 3px 3px 3px 3px rgba(206, 203, 203, 0.2);
+    margin: auto;
+    height: fit-content;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+    padding:2rem;
+    }
+
+    .surveyHeader {
+      margin-bottom: 3rem;
+    }
+  }

@@ -30,12 +30,10 @@ class Graph extends React.Component {
   render() {
     return (
       <>
-
-        <HorizontalBar
+        <HorizontalBar 
           data={this.state.dataHorizontal}
           options={{ responsive: true, legend: {display: false},  scales: { yAxes: [{  gridLines: {display:false } }] } }}
         />
-
       </>
         
     

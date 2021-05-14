@@ -4,11 +4,12 @@ import React from 'react';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
  
 const Nav = () => {
+
     return(
     <nav>
       <Breadcrumb>
-      <Breadcrumb.Item href='#'>Ankete</Breadcrumb.Item>
-      <Breadcrumb.Item active>Nova anketa</Breadcrumb.Item>
+      <Breadcrumb.Item href='./newsurvey'>Ankete</Breadcrumb.Item>
+      <Breadcrumb.Item active>Rezultati</Breadcrumb.Item>
       </Breadcrumb>
     </nav>
     )

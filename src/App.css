@@ -89,17 +89,30 @@ html {
   }
 
   /*SURVEY*/
+  .wrapper {
+    position:relative;
+  }
   .surveyHeader {
       color: #FFD954;
       font-weight:bold;
       text-align:center;
-      margin-top: 4em;
       margin-bottom: 2rem;
+      outline:none;
+      border:1px solid #e2dfdf;
+      border-radius:10px;
+      padding: 10px;
+      min-width:30vw;
   }
 
+  input { 
+    text-align: center; 
+}
+
   .headerIcon {
-    /* display: none; must show on surveryHeader hover*/
-    z-index: 10;
+    position:absolute;
+    left:95%; /*fixati relative to parent*/
+    top:3px;
+    z-index: 100;
     background-color: #ffff;
     padding: 5px;
     border: 1px solid #e2dfdf;
@@ -111,7 +124,7 @@ html {
     text-align:center;
   }
 
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder { 
     color: #FFD954;
     text-align: center;
   }

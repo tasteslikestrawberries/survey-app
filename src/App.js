@@ -1,4 +1,3 @@
-
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,9 +6,7 @@ import {
 
 //components
 import Header from './components/header';
-import Nav from './components/navigation';
 import NewSurvey from './components/newsurvey';
-import StepSelector from './components/stepselector';
 import Results from './components/results';
 
 //styles
@@ -25,8 +22,6 @@ function App() {
     <Router>
     <>
     <Header />
-    <Nav />
-    <StepSelector />
           <Switch>
           
             <Route path='/results'>

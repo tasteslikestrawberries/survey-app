@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
-import {
-    Link
-  } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 //icons
 import { Icon } from '@iconify/react';
 import pencilIcon from '@iconify/icons-mdi/pencil';

@@ -1,26 +1,39 @@
-import React, {useState} from 'react';
-import {
-  } from 'react-router-dom';
+import React, { useState } from 'react';
+import StepSelector from './stepselector';
+
+//styles
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 //icons
 import { Icon } from '@iconify/react';
 import pencilIcon from '@iconify/icons-mdi/pencil';
 
-const NewSurvey = (props) => {
-    const [question, setQuestion] = useState('');
-
+const NewSurvey = () => {
+    const [inHover, setHover] = useState(false)
+    const [inputsValue, setValue] = useState({})
 
     return (
     <>
+     <nav>
+      <Breadcrumb>
+      <Breadcrumb.Item href='#'>Ankete</Breadcrumb.Item>
+      <Breadcrumb.Item active>Nova anketa</Breadcrumb.Item>
+      </Breadcrumb>
+    </nav>
+     <StepSelector />
     <div className='container'>
-            
+   
                 <form>
                     <label>
-                        <input type="text" placeholder='Nova anketa' style={{color:'#FFD954', border:'none', borderRadius:50, padding:'10px'}} value={question} onChange={event => setQuestion(event.target.value)}/>
+                      <div className='wrapper'>
+                        <input type="text" placeholder='Nova anketa' className='surveyHeader' onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}/>
+
+                         {inHover && <Icon className='headerIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', margin:5, boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>}
+                         </div>
                     </label>
                 </form>
 
-                <Icon className='headerIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', margin:5}} />
+           
      
 
     </div>
@@ -29,48 +42,3 @@ const NewSurvey = (props) => {
 }
 
 export default NewSurvey
-
-/*
-import React, {useState} from 'react';
-import {
-  } from 'react-router-dom';
-
-//icons
-import { Icon } from '@iconify/react';
-import pencilIcon from '@iconify/icons-mdi/pencil';
-
-const NewSurvey = (props) => {
-    const [isEditing, setIsEditing] = useState(false)
-    const handleInputChange = (e)=>{
-        // console.log( e.target.value );
-        // your awesome stuffs goes here
-    }
-
-
-    return (
-    <>
-    <div className='container'>
-
-        {/*
-            
-    <div className='tasks-container'>
-            {
-                isEditing ? 
-                <form>
-                <input type='text' onChange={handleInputChange} defaultValue = {props.item.chore}/> 
-                </form>
-                : <h1 onDoubleClick ={()=> setIsEditing(true)}>{props.item.chore}</h1>
-            }
-    </div>
-   
-   <Icon className='headerIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', margin:5}} />
-     
-
-   </div>
-   </>
-   )
-}
-
-export default NewSurvey
-
-*/

@@ -1,4 +1,6 @@
 import React from 'react';
+import Nav from './navigation';
+import StepSelector from './stepselector';
 import Graph from './graph';
 
 //styles
@@ -12,9 +14,11 @@ import fileTypeExcel2 from '@iconify/icons-vscode-icons/file-type-excel2';
 
     return (
         <>
+        <Nav />
+         <StepSelector />
         <div className='container'>
             <div className='excel'><Icon icon={fileTypeExcel2} style={{fontSize: '32px'}} /> Preuzmi excel datoteku</div>
-            <div className='surveyHeader'>
+            <div className='surveyHeader' style={{border:'none'}}>
                 Upitnik o zadovoljstvu provedenom edukacijom
             </div>
             <div className='resultsContainer'>

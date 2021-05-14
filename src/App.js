@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from 'react-router-dom';
 
 //components
@@ -28,9 +29,11 @@ function App() {
               <Results />
             </Route>
 
-            <Route path='/'>
+            <Route path='/newsurvey'>
               <NewSurvey />
             </Route>
+
+            <Redirect to='/newsurvey' />
 
           </Switch>
     </>

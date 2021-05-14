@@ -68,7 +68,7 @@ html {
     display:flex;
     margin:auto;
     justify-content: space-around;
-    width: 42%;
+    width: 50%;
     column-gap: 1.7rem;
     padding-top: 0.5rem;
     padding-bottom: 2rem;
@@ -79,6 +79,17 @@ html {
     padding: 5px;
     border: 1px solid #e2dfdf;
     border-radius: 50px;
+    font-size: 32px;
+  }
+
+  .activeIcon {
+    border: none;
+    background-color: #ffda544b;
+    color:#FFD954;
+  }
+
+  .activeIconText {
+    color:#FFD954;
   }
   
   .hr {
@@ -95,13 +106,15 @@ html {
   .surveyHeader {
       color: #FFD954;
       font-weight:bold;
-      text-align:center;
       margin-bottom: 2rem;
       outline:none;
       border:1px solid #e2dfdf;
       border-radius:10px;
       padding: 10px;
       min-width:30vw;
+      text-align: center;
+      margin-top: 3rem;
+      
   }
 
   input { 
@@ -184,8 +197,5 @@ html {
     padding:2rem;
     }
 
-    .surveyHeader {
-      margin-bottom: 3rem;
-    }
   }
 

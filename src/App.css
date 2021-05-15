@@ -122,9 +122,9 @@ html {
 }
 
   .headerIcon {
-    position:absolute;
-    left:95%; /*fixati relative to parent*/
-    top:3px;
+    position:absolute; /*fixati relative to parent*/
+    left:95%; 
+    top:50px;
     z-index: 100;
     background-color: #ffff;
     padding: 5px;

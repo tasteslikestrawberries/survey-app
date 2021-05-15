@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import StepSelector from './stepselector';
 
 //styles
@@ -21,7 +23,7 @@ const NewSurvey = () => {
     <>
      <nav>
       <Breadcrumb>
-      <Breadcrumb.Item href='#'>Ankete</Breadcrumb.Item>
+      <Breadcrumb.Item><Link to='/'>Ankete</Link></Breadcrumb.Item>
       <Breadcrumb.Item active>{inputsValue || inputsValueDefault}</Breadcrumb.Item>
       </Breadcrumb>
     </nav>

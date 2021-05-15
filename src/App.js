@@ -1,5 +1,11 @@
 import {
-  BrowserRouter as Router,
+  BrowserRouter as Router, 
+  /* gh-pages client side routing problem (check https://create-react-app.dev/docs/deployment):
+  HashRouter - why it's not the best approach - # should be local anchors only
+  Link inside BreadCrumb works (instead of Breadcrumb href attribute(doesn't use router), but correct method is using basename prop on Router:
+  <BrowserRouter basename="/calendar"/>
+  <Link to="/today"/> // renders <a href="/calendar/today">
+*/
   Switch,
   Route,
   Redirect,
@@ -20,7 +26,7 @@ import './App.css';
 function App() {
   return (
     
-    <Router>
+    <Router basename='/survey-app'>
     <>
     <Header />
           <Switch>
@@ -33,7 +39,7 @@ function App() {
               <NewSurvey />
             </Route>
 
-            <Redirect to='/newsurvey' />
+            <Redirect to='/newsurvey' /> 
 
           </Switch>
     </>

@@ -18,7 +18,7 @@ import fileTypeExcel2 from '@iconify/icons-vscode-icons/file-type-excel2';
          <StepSelector />
         <div className='container'>
             <div className='excel'><Icon icon={fileTypeExcel2} style={{fontSize: '32px'}} /> Preuzmi excel datoteku</div>
-            <div className='surveyHeader' style={{border:'none'}}>
+            <div className='surveyHeader' style={{border:'none', margin:'2rem 0'}}>
                 Upitnik o zadovoljstvu provedenom edukacijom
             </div>
             <div className='resultsContainer'>

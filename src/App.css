@@ -100,31 +100,32 @@ html {
   }
 
   /*SURVEY*/
-  .wrapper {
+
+  .headerWrapper {
     position:relative;
+    text-align:center;
+
   }
+
   .surveyHeader {
       color: #FFD954;
       font-weight:bold;
-      margin-bottom: 2rem;
       outline:none;
       border:1px solid #e2dfdf;
       border-radius:10px;
       padding: 10px;
       min-width:30vw;
-      text-align: center;
-      margin-top: 3rem;
-      
+      text-align: center;      
   }
 
-  input { 
-    text-align: center; 
-}
+  .surveyHeader::placeholder { 
+    color: #FFD954;
+  }
 
   .headerIcon {
     position:absolute; /*fixati relative to parent*/
-    left:95%; 
-    top:50px;
+    left:70%; 
+    top:8px;
     z-index: 100;
     background-color: #ffff;
     padding: 5px;
@@ -133,13 +134,78 @@ html {
     border-radius: 50px;
   }
 
-  form {
-    text-align:center;
+ 
+  .label {
+    display:block;
   }
 
-  ::placeholder { 
-    color: #FFD954;
-    text-align: center;
+  .answersWrapper{
+    margin-left:5rem;
+  }
+
+  .questionNumber {
+    font-weight: bold;
+    color:#FFD954;
+  }
+
+  .question {
+    
+    margin: 1rem 0;
+    outline-color: rgba(150, 190, 230, 0.564);
+    border:none;
+    font-weight:bold;
+    padding: 10px;
+    min-width:50vw;
+  }
+
+  .answerContainer {
+    display:flex;
+    column-gap: 0.5rem;
+  }
+
+  .answer{
+    text-align: left;
+    outline:none;
+    border:none;
+    background-color: #f7f4f4;
+    font-weight:bold;
+    margin-bottom: 1rem;
+    padding: 5px;
+    min-width:20vw;
+  
+  }
+
+  .addButtons {
+    display:flex;
+    column-gap: 3rem;
+    margin: 1rem 2rem;
+    cursor:pointer;
+  }
+
+  .toggleButtons {
+    display:flex;
+    font-weight: bold;
+    cursor:pointer;
+    margin: 0 2rem;
+  }
+
+  .itemsBelow {
+    display:flex;
+    justify-content: space-between;
+    font-weight: bold;
+    cursor:pointer;
+  }
+
+  .dismissSave {
+    display:inline-flex;
+    text-transform: uppercase;
+    justify-content: flex-end;
+    column-gap: 2rem;
+    font-weight: bold;
+  }
+
+  .dismissSave>span:nth-child(2) {
+    color:#FFD954;
   }
 
   /*RESULTS*/
@@ -171,6 +237,8 @@ html {
     cursor:pointer;
   }
 
+  /*BIG SCREENS*/
+
   @media (min-width: 60rem) { 
     body {
       padding:0 5rem;
@@ -187,14 +255,13 @@ html {
     }
 
     .container {
-      box-sizing: border-box;
+    box-sizing: border-box;
     border: 2px solid #f0eded;
     box-shadow: 3px 3px 3px 3px rgba(206, 203, 203, 0.2);
     margin: auto;
     height: fit-content;
-    margin-bottom: 5rem;
     margin-top: 2rem;
-    padding:2rem;
+    padding:2rem 2rem 1rem 2rem;
     }
 
   }

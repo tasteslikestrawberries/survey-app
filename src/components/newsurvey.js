@@ -18,11 +18,11 @@ import xIcon from '@iconify/icons-bi/x';
 const inputsValueDefault = 'Nova anketa';
 
 const NewSurvey = () => {
-    const [inHover, setHover] = useState(false)
     const [inputsValue, setValue] = useState('');
     const [questions, setQuestions] = useState(['']);
     const [answers, setAnswers] = useState(['']);
     const [isMultipleChoices, setIsMultipleChoices ] = useState(false);
+    const [isRequired, setIsRequired ] = useState(false);
 
 
     function onInputHandler(event) {
@@ -45,14 +45,14 @@ const NewSurvey = () => {
       <form>
         <div className='headerWrapper'>
           <label>
-            <input type="text" placeholder='Nova anketa' value={inputsValue} onInput={onInputHandler} className='surveyHeader' onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}/>
-            {inHover && <Icon className='headerIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>}
+            <input type="text" placeholder='Nova anketa' value={inputsValue} onInput={onInputHandler} className='surveyHeader'/>
+            <Icon className='hoverIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
           </label>
         </div>
 
         {
         questions.map( (question, index) => (
-            <label>
+            <label className='questionWrapper'>
               <span className='questionNumber'>{index + 1}.</span>
               <input 
                 type="text"
@@ -67,6 +67,7 @@ const NewSurvey = () => {
                 }))}
                 value={question}>
               </input>
+              <Icon className='hoverIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
             </label>
           ))
         } 
@@ -84,6 +85,7 @@ const NewSurvey = () => {
                     value={answer}
                   />
                   <Icon icon={xIcon} style={{color: '#6c757d', fontSize: '32px'}} />
+                  <Icon className='hoverIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
               </label>
               ))
           }
@@ -99,8 +101,8 @@ const NewSurvey = () => {
              <span onClick={() => setIsMultipleChoices( (prevState) => !prevState)}>
                {
                  isMultipleChoices         
-                 ?   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px'}} />
-                 :   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px'}} />
+                 ?   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} />
+                 :   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} />
                }
                   &nbsp;&nbsp;Višestruki odabir
               </span>
@@ -111,9 +113,14 @@ const NewSurvey = () => {
         <hr/>
 
         <div className='itemsBelow'>
-          <span><CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', border:'aaaaaa'}} />&nbsp;&nbsp;Obavezan odgovor</span>
-
-          {/*<span><CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px'}} /></span> */}
+          <span onClick={() => setIsRequired( (prevState) => !prevState)}>
+          {
+            isRequired 
+            ?   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', border:'aaaaaa', cursor:'pointer'}} />
+            :   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} /> 
+          }
+            &nbsp;&nbsp;Obavezan odgovor
+          </span>
         
 
           <div className='dismissSave'>

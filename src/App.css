@@ -105,6 +105,10 @@ html {
   color:#6c757d;
   }
 
+  label {
+    display:block;
+  }
+  
   .hoverIcon {
     display:none;
     position:absolute; /*fixati relative to parent*/
@@ -118,11 +122,9 @@ html {
     border-radius: 50px;
   }
 
-
   .headerWrapper {
     position:relative;
     text-align:center;
-
   }
 
   .headerWrapper:hover .hoverIcon {
@@ -130,26 +132,24 @@ html {
   }
 
   .surveyHeader {
-      color: #FFD954;
-      font-weight:bold;
-      outline:none;
-      border:1px solid #e2dfdf;
-      border-radius:10px;
-      padding: 10px;
-      min-width:30vw;
-      text-align: center;      
+    color: #FFD954;
+    font-weight:bold;
+    outline:none;
+    border:1px solid #e2dfdf;
+    border-radius:10px;
+    padding: 10px;
+    min-width:30vw;
+    text-align: center;         
   }
 
   .surveyHeader::placeholder { 
     color: #FFD954;
   }
- 
-  .label {
-    display:block;
-  }
 
-  .answersWrapper{
-    margin-left:5rem;
+  .questionWrapper:hover .hoverIcon {
+    display:block;
+    left:70%;
+    top: 370px;
   }
 
   .questionNumber {
@@ -164,22 +164,20 @@ html {
     border:none;
     font-weight:bold;
     padding: 10px;
-    min-width:50vw;
+    min-width:60vw;
   }
 
-  .questionWrapper:hover .hoverIcon {
-    display:block;
-    left:70%;
-    top: 370px;
+  .answersWrapper{
+    margin-left:5rem;
   }
 
-  .answerContainer {
+  .answerWrapper {
     position:relative;
     display:flex;
     column-gap: 0.5rem;
   }
 
-  .answerContainer:hover .hoverIcon {
+  .answerWrapper:hover .hoverIcon {
     display:block;
   }
 
@@ -190,7 +188,7 @@ html {
     background-color: #f7f4f4;
     font-weight:bold;
     margin-bottom: 1rem;
-    padding: 5px;
+    padding: 7px;
     min-width:30vw;
   }
 

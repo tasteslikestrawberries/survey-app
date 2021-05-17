@@ -15,24 +15,24 @@ const results = '/results';
   console.log(useLocation());
 
     return(
-       <>
-          <div className='stepSelector'>
+      <>
+        <div className='stepSelector'>
 
           <Link to={newsurvey}><Icon className={`icon ${(activeStep === newsurvey || activeStep === '/') ? 'activeIcon' : ''}`} icon={pencilIcon} /></Link>
 
-          <div className='hr'></div>
+        <div className='hr'/>
 
           <Link to={results}><Icon className={`icon ${activeStep === results ? 'activeIcon' : ''}`} icon={graphIcon} /></Link>
-          </div>
+        </div>
 
-          <div className='stepSelectorText'>
-            <span className={`${activeStep === newsurvey ? 'activeIconText' : ''}`}>Uređivanje</span>
-            <span>Pregled</span>
-            <span>Slanje</span>
-            <span className={`${activeStep === results ? 'activeIconText' : ''}`}>Rezultati</span>
+        <div className='stepSelectorText'>
+          <span className={`${activeStep === newsurvey ? 'activeIconText' : ''}`}>Uređivanje</span>
+          <span>Pregled</span>
+          <span>Slanje</span>
+          <span className={`${activeStep === results ? 'activeIconText' : ''}`}>Rezultati</span>
 
-          </div>
-       </>
+        </div>
+      </>
     )
 }
 

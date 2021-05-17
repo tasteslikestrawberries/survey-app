@@ -1,11 +1,12 @@
-import {
-  BrowserRouter as Router, 
   /* gh-pages client side routing problem (check https://create-react-app.dev/docs/deployment):
   HashRouter - why it's not the best approach - # should be local anchors only
-  Link inside BreadCrumb works (instead of Breadcrumb href attribute(doesn't use router), but correct method is using basename prop on Router:
+  Link inside BreadCrumb works(not the correct method because <a> nesting) (instead of Breadcrumb href attribute(doesn't use router) + using basename prop on Router:
   <BrowserRouter basename="/calendar"/>
   <Link to="/today"/> // renders <a href="/calendar/today">
 */
+
+import {
+  BrowserRouter as Router, 
   Switch,
   Route,
   Redirect,

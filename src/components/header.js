@@ -5,12 +5,12 @@ import React from 'react';
       
         return (
     <>
-    <div className='header'>
-    <div className='headerItems'>
-            <div className='verticalBar'></div>
-            <span>Ankete</span>
-    </div>
-    </div>
+      <div className='header'>
+        <div className='headerItems'>
+          <div className='verticalBar'></div>
+          <span>Ankete</span>
+        </div>
+      </div>
     </>
   );
 };

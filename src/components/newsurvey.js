@@ -13,8 +13,8 @@ import plusCircleFilled from '@iconify/icons-ant-design/plus-circle-filled';
 import { CgToggleOff, CgToggleOn } from 'react-icons/cg';
 import checkboxIcon from '@iconify/icons-carbon/checkbox';
 import xIcon from '@iconify/icons-bi/x';
-//import checkboxBlankCircleOutline from '@iconify/icons-mdi/checkbox-blank-circle-outline';
-//<Icon icon={checkboxBlankCircleOutline} className='circle' style={{color: '#e2dfdf', fontSize: '32px'}} />
+import checkboxBlankCircleOutline from '@iconify/icons-mdi/checkbox-blank-circle-outline';
+
 
 const inputsValueDefault = 'Nova anketa';
 
@@ -23,6 +23,7 @@ const NewSurvey = () => {
     const [questions, setQuestions] = useState(['']);
     const [answers, setAnswers] = useState(['']);
     const [isMultipleChoices, setIsMultipleChoices ] = useState(false);
+    const [optionOther, setOptionOther ] = useState(false);
     const [isRequired, setIsRequired ] = useState(false);
  
     function onInputHandler(event) {
@@ -51,7 +52,6 @@ const NewSurvey = () => {
           </label>
         </div>
 
-
         {
         questions.map( (question, index) => (
             <label className='questionWrapper'>
@@ -78,7 +78,12 @@ const NewSurvey = () => {
           {
             answers.map( (answer, index) => (
               <label className='answerWrapper'>
-                  <Icon icon={checkboxIcon} className='square' style={{color: '#e2dfdf', fontSize: '32px'}} />
+                  {
+                 isMultipleChoices         
+                 ?    <Icon icon={checkboxBlankCircleOutline} className='circle' style={{color: '#e2dfdf', fontSize: '32px'}} />
+                 :    <Icon icon={checkboxIcon} className='square' style={{color: '#e2dfdf', fontSize: '32px'}} />
+               }
+                  
                   <input 
                     type="text" 
                     placeholder={`Odgovor ${index+1}`} 
@@ -95,7 +100,15 @@ const NewSurvey = () => {
         <div className='addButtons'>
           <span><Icon icon={plusCircleFilled} className='addAnswer' style={{color: '#FFD954', fontSize: '32px'}} onClick={() => setAnswers( (prevAnswers) => [...prevAnswers, ''])}></Icon>&nbsp;&nbsp;Dodaj odgovor</span>
           
-          <span><Icon icon={plusCircleFilled} style={{color: '#eeeeee', fontSize: '32px'}}></Icon>&nbsp;&nbsp;Dodaj opciju "Drugo"</span> 
+          <span onClick={() => setOptionOther(  (prevState) => !prevState)}>
+            {
+            optionOther
+            ?   <Icon icon={plusCircleFilled} style={{color: '#FFD954', fontSize: '32px', cursor:'pointer'}}></Icon>
+            :   <Icon icon={plusCircleFilled} style={{color: '#e2dfdf', fontSize: '32px', cursor:'pointer'}}></Icon>
+            }
+
+        &nbsp;&nbsp;Dodaj opciju "Drugo"
+          </span>
         </div>
 
 
@@ -106,6 +119,7 @@ const NewSurvey = () => {
                  ?   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} />
                  :   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} /> 
                }
+
                   &nbsp;&nbsp;Višestruki odabir
               </span>
           </div>

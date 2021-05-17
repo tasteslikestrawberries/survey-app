@@ -54,8 +54,9 @@ const NewSurvey = () => {
 
         {
         questions.map( (question, index) => (
-            <label className='questionWrapper'>
+            <div className='questionWrapper'>
               <span className='questionNumber'>{index + 1}.</span>
+              <span>
               <input 
                 type="text"
                 placeholder={`Pitanje ${index + 1}`} 
@@ -70,7 +71,8 @@ const NewSurvey = () => {
                 value={question}>
               </input>
               <Icon icon={pencilIcon} className='hoverIcon' style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
-            </label>
+              </span>
+            </div>
           ))
         } 
         
@@ -98,17 +100,27 @@ const NewSurvey = () => {
           }
 
         <div className='addButtons'>
-          <span><Icon icon={plusCircleFilled} className='addAnswer' style={{color: '#FFD954', fontSize: '32px'}} onClick={() => setAnswers( (prevAnswers) => [...prevAnswers, ''])}></Icon>&nbsp;&nbsp;Dodaj odgovor</span>
-          
-          <span onClick={() => setOptionOther(  (prevState) => !prevState)}>
-            {
-            optionOther
-            ?   <Icon icon={plusCircleFilled} style={{color: '#FFD954', fontSize: '32px', cursor:'pointer'}}></Icon>
-            :   <Icon icon={plusCircleFilled} style={{color: '#e2dfdf', fontSize: '32px', cursor:'pointer'}}></Icon>
-            }
+          <div className='addButtonsFlex'>
+            <span>
+              <Icon icon={plusCircleFilled} 
+                className='addAnswer' 
+                style={{color: '#FFD954', fontSize: '32px'}} 
+                onClick={() => setAnswers( (prevAnswers) => [...prevAnswers, ''])}>
+              </Icon>
+            </span>
+            <span>Dodaj odgovor</span>
+          </div>
 
-        &nbsp;&nbsp;Dodaj opciju "Drugo"
-          </span>
+          <div className='addButtonsFlex'>
+            <span onClick={() => setOptionOther(  (prevState) => !prevState)}>
+              {
+              optionOther
+              ?   <Icon icon={plusCircleFilled} style={{color: '#FFD954', fontSize: '32px', cursor:'pointer'}}></Icon>
+              :   <Icon icon={plusCircleFilled} style={{color: '#e2dfdf', fontSize: '32px', cursor:'pointer'}}></Icon>
+              }
+            </span>
+            <span>Dodaj opciju "Drugo"</span>
+          </div>
         </div>
 
 
@@ -119,9 +131,8 @@ const NewSurvey = () => {
                  ?   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} />
                  :   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} /> 
                }
-
-                  &nbsp;&nbsp;Višestruki odabir
               </span>
+              <span>Višestruki odabir</span>
           </div>
 
         </div>
@@ -129,15 +140,16 @@ const NewSurvey = () => {
         <hr/>
 
         <div className='itemsBelow'>
+          <div className='itemsBelowFlex'>
           <span onClick={() => setIsRequired( (prevState) => !prevState)}>
           {
             isRequired 
             ?   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', border:'aaaaaa', cursor:'pointer'}} />
             :   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} /> 
           }
-            &nbsp;&nbsp;Obavezan odgovor
           </span>
-        
+          <span>Obavezan odgovor</span>
+          </div>
 
           <div className='dismissSave'>
             <span>Odustani</span>

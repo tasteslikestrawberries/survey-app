@@ -321,7 +321,7 @@ html {
 
   }
 
-  @media (min-width: 959px) { 
+  @media (max-width: 959px) { 
   .itemsBelow {
     justify-content: space-between;
     column-gap: 2rem;

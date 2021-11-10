@@ -1,167 +1,266 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import StepSelector from './stepselector';
+import StepSelector from "./stepselector";
 
 //styles
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Breadcrumb from "react-bootstrap/Breadcrumb";
 
 //icons
-import { Icon } from '@iconify/react';
-import pencilIcon from '@iconify/icons-mdi/pencil';
-import plusCircleFilled from '@iconify/icons-ant-design/plus-circle-filled';
-import { CgToggleOff, CgToggleOn } from 'react-icons/cg';
-import checkboxIcon from '@iconify/icons-carbon/checkbox';
-import xIcon from '@iconify/icons-bi/x';
-import checkboxBlankCircleOutline from '@iconify/icons-mdi/checkbox-blank-circle-outline';
+import { Icon } from "@iconify/react";
+import pencilIcon from "@iconify/icons-mdi/pencil";
+import plusCircleFilled from "@iconify/icons-ant-design/plus-circle-filled";
+import { CgToggleOff, CgToggleOn } from "react-icons/cg";
+import checkboxIcon from "@iconify/icons-carbon/checkbox";
+import xIcon from "@iconify/icons-bi/x";
+import checkboxBlankCircleOutline from "@iconify/icons-mdi/checkbox-blank-circle-outline";
 
-
-const inputsValueDefault = 'Nova anketa';
+const inputsValueDefault = "Nova anketa";
 
 const NewSurvey = () => {
-    const [inputsValue, setValue] = useState('');
-    const [questions, setQuestions] = useState(['']);
-    const [answers, setAnswers] = useState(['']);
-    const [isMultipleChoices, setIsMultipleChoices ] = useState(false);
-    const [optionOther, setOptionOther ] = useState(false);
-    const [isRequired, setIsRequired ] = useState(false);
- 
-    function onInputHandler(event) {
-      setValue(event.target.value)
-    }
+  const [inputsValue, setValue] = useState("");
+  const [questions, setQuestions] = useState([""]);
+  const [answers, setAnswers] = useState([""]);
+  const [isMultipleChoices, setIsMultipleChoices] = useState(false);
+  const [optionOther, setOptionOther] = useState(false);
+  const [isRequired, setIsRequired] = useState(false);
 
-    return (
-  <>
-    <nav>
-      <Breadcrumb>
-      <Breadcrumb.Item><Link to='/'>Ankete</Link></Breadcrumb.Item>
-      <Breadcrumb.Item active>{inputsValue || inputsValueDefault}</Breadcrumb.Item>
-      </Breadcrumb>
-    </nav>
+  function onInputHandler(event) {
+    setValue(event.target.value);
+  }
 
-     <StepSelector />
+  return (
+    <>
+      <nav>
+        <Breadcrumb>
+          <Breadcrumb.Item>
+            <Link to="/">Ankete</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item active>
+            {inputsValue || inputsValueDefault}
+          </Breadcrumb.Item>
+        </Breadcrumb>
+      </nav>
 
-    <div className='container'>
-   
-      <form>
-       
-        <div className='headerWrapper'>
-          <label>
-            <input type="text" placeholder='Nova anketa' value={inputsValue} onInput={onInputHandler} className='surveyHeader'/>
-            <Icon className='hoverIcon' icon={pencilIcon} style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
-          </label>
-        </div>
+      <StepSelector />
 
-        {
-        questions.map( (question, index) => (
-            <div className='questionWrapper'>
-              <span className='questionNumber'>{index + 1}.</span>
-              <span>
-              <input 
+      <div className="container">
+        <form>
+          <div className="headerWrapper">
+            <label>
+              <input
                 type="text"
-                placeholder={`Pitanje ${index + 1}`} 
-                className='question'
-                onInput={(event) => setQuestions( (prevQuestions) => prevQuestions.map( (question, innerIndex) => {
-                  if (innerIndex === index) {
-                    question = event.target.value
-                  }
+                placeholder="Nova anketa"
+                value={inputsValue}
+                onInput={onInputHandler}
+                className="surveyHeader"
+              />
+              <Icon
+                className="hoverIcon"
+                icon={pencilIcon}
+                style={{
+                  color: "#aaaaaa",
+                  fontSize: "28px",
+                  boxShadow: "1px 1px 2px 1px rgba(206, 203, 203, 0.2)",
+                }}
+              />
+            </label>
+          </div>
 
-                  return question;
-                }))}
-                value={question}>
-              </input>
-              <Icon icon={pencilIcon} className='hoverIcon' style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
+          {questions.map((question, index) => (
+            <div className="questionWrapper">
+              <span className="questionNumber">{index + 1}.</span>
+              <span>
+                <input
+                  type="text"
+                  placeholder={`Pitanje ${index + 1}`}
+                  className="question"
+                  onInput={(event) =>
+                    setQuestions((prevQuestions) =>
+                      prevQuestions.map((question, innerIndex) => {
+                        if (innerIndex === index) {
+                          question = event.target.value;
+                        }
+
+                        return question;
+                      })
+                    )
+                  }
+                  value={question}
+                ></input>
+                <Icon
+                  icon={pencilIcon}
+                  className="hoverIcon"
+                  style={{
+                    color: "#aaaaaa",
+                    fontSize: "28px",
+                    boxShadow: "1px 1px 2px 1px rgba(206, 203, 203, 0.2)",
+                  }}
+                />
               </span>
             </div>
-          ))
-        } 
-        
-        <div className='answersWrapper'>
-          {
-            answers.map( (answer, index) => (
-              <label className='answerWrapper'>
-                  {
-                 isMultipleChoices         
-                 ?    <Icon icon={checkboxBlankCircleOutline} className='circle' style={{color: '#e2dfdf', fontSize: '32px'}} />
-                 :    <Icon icon={checkboxIcon} className='square' style={{color: '#e2dfdf', fontSize: '32px'}} />
-               }
-                  
-                  <input 
-                    type="text" 
-                    placeholder={`Odgovor ${index+1}`} 
-                    className='answer' 
-                    onInput={(event) => setAnswers( (prevAnswers) => [...prevAnswers.slice(0, index), event.target.value, ...prevAnswers.slice(index + 1)])}
-                    value={answer}
+          ))}
+
+          <div className="answersWrapper">
+            {answers.map((answer, index) => (
+              <label className="answerWrapper">
+                {isMultipleChoices ? (
+                  <Icon
+                    icon={checkboxBlankCircleOutline}
+                    className="circle"
+                    style={{ color: "#e2dfdf", fontSize: "32px" }}
                   />
-                  <Icon icon={xIcon} style={{color: '#6c757d', fontSize: '32px', cursor:'pointer'}} onClick={(event) => setAnswers( (prevAnswers) => [...prevAnswers.slice(1)])} />
-                  <Icon icon={pencilIcon} className='hoverIcon' style={{color: '#aaaaaa', fontSize: '28px', boxShadow:'1px 1px 2px 1px rgba(206, 203, 203, 0.2)'}}/>
+                ) : (
+                  <Icon
+                    icon={checkboxIcon}
+                    className="square"
+                    style={{ color: "#e2dfdf", fontSize: "32px" }}
+                  />
+                )}
+
+                <input
+                  type="text"
+                  placeholder={`Odgovor ${index + 1}`}
+                  className="answer"
+                  onInput={(event) =>
+                    setAnswers((prevAnswers) => [
+                      ...prevAnswers.slice(0, index),
+                      event.target.value,
+                      ...prevAnswers.slice(index + 1),
+                    ])
+                  }
+                  value={answer}
+                />
+                <Icon
+                  icon={xIcon}
+                  style={{
+                    color: "#6c757d",
+                    fontSize: "32px",
+                    cursor: "pointer",
+                  }}
+                  onClick={(event) =>
+                    setAnswers((prevAnswers) => [...prevAnswers.slice(1)])
+                  }
+                />
+                <Icon
+                  icon={pencilIcon}
+                  className="hoverIcon"
+                  style={{
+                    color: "#aaaaaa",
+                    fontSize: "28px",
+                    boxShadow: "1px 1px 2px 1px rgba(206, 203, 203, 0.2)",
+                  }}
+                />
               </label>
-              ))
-          }
+            ))}
 
-        <div className='addButtons'>
-          <div className='addButtonsFlex'>
-            <span>
-              <Icon icon={plusCircleFilled} 
-                className='addAnswer' 
-                style={{color: '#FFD954', fontSize: '32px'}} 
-                onClick={() => setAnswers( (prevAnswers) => [...prevAnswers, ''])}>
-              </Icon>
-            </span>
-            <span>Dodaj odgovor</span>
-          </div>
+            <div className="addButtons">
+              <div className="addButtonsFlex">
+                <span>
+                  <Icon
+                    icon={plusCircleFilled}
+                    className="addAnswer"
+                    style={{ color: "#FFD954", fontSize: "32px" }}
+                    onClick={() =>
+                      setAnswers((prevAnswers) => [...prevAnswers, ""])
+                    }
+                  ></Icon>
+                </span>
+                <span>Dodaj odgovor</span>
+              </div>
 
-          <div className='addButtonsFlex'>
-            <span onClick={() => setOptionOther(  (prevState) => !prevState)}>
-              {
-              optionOther
-              ?   <Icon icon={plusCircleFilled} style={{color: '#FFD954', fontSize: '32px', cursor:'pointer'}}></Icon>
-              :   <Icon icon={plusCircleFilled} style={{color: '#e2dfdf', fontSize: '32px', cursor:'pointer'}}></Icon>
-              }
-            </span>
-            <span>Dodaj opciju "Drugo"</span>
-          </div>
-        </div>
+              <div className="addButtonsFlex">
+                <span onClick={() => setOptionOther((prevState) => !prevState)}>
+                  {optionOther ? (
+                    <Icon
+                      icon={plusCircleFilled}
+                      style={{
+                        color: "#FFD954",
+                        fontSize: "32px",
+                        cursor: "pointer",
+                      }}
+                    ></Icon>
+                  ) : (
+                    <Icon
+                      icon={plusCircleFilled}
+                      style={{
+                        color: "#e2dfdf",
+                        fontSize: "32px",
+                        cursor: "pointer",
+                      }}
+                    ></Icon>
+                  )}
+                </span>
+                <span>Dodaj opciju "Drugo"</span>
+              </div>
+            </div>
 
-
-          <div className='toggleButtons'>
-             <span onClick={() => setIsMultipleChoices( (prevState) => !prevState)}>
-               {
-                 isMultipleChoices         
-                 ?   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} />
-                 :   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} /> 
-               }
+            <div className="toggleButtons">
+              <span
+                onClick={() => setIsMultipleChoices((prevState) => !prevState)}
+              >
+                {isMultipleChoices ? (
+                  <CgToggleOn
+                    className="toggleOn"
+                    style={{
+                      color: "#FFD954",
+                      fontSize: "40px",
+                      cursor: "pointer",
+                    }}
+                  />
+                ) : (
+                  <CgToggleOff
+                    className="toggleOff"
+                    style={{
+                      color: "#FFD954",
+                      fontSize: "40px",
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
               </span>
               <span>Višestruki odabir</span>
+            </div>
           </div>
 
-        </div>
-      
-        <hr/>
+          <hr />
 
-        <div className='itemsBelow'>
-          <div className='itemsBelowFlex'>
-          <span onClick={() => setIsRequired( (prevState) => !prevState)}>
-          {
-            isRequired 
-            ?   <CgToggleOff className='toggleOff' style={{color: '#FFD954', fontSize: '40px', border:'aaaaaa', cursor:'pointer'}} />
-            :   <CgToggleOn className='toggleOn' style={{color: '#FFD954', fontSize: '40px', cursor:'pointer'}} /> 
-          }
-          </span>
-          <span>Obavezan odgovor</span>
+          <div className="itemsBelow">
+            <div className="itemsBelowFlex">
+              <span onClick={() => setIsRequired((prevState) => !prevState)}>
+                {isRequired ? (
+                  <CgToggleOff
+                    className="toggleOff"
+                    style={{
+                      color: "#FFD954",
+                      fontSize: "40px",
+                      border: "aaaaaa",
+                      cursor: "pointer",
+                    }}
+                  />
+                ) : (
+                  <CgToggleOn
+                    className="toggleOn"
+                    style={{
+                      color: "#FFD954",
+                      fontSize: "40px",
+                      cursor: "pointer",
+                    }}
+                  />
+                )}
+              </span>
+              <span>Obavezan odgovor</span>
+            </div>
+
+            <div className="dismissSave">
+              <span>Odustani</span>
+              <span>Spremi</span>
+            </div>
           </div>
+        </form>
+      </div>
+    </>
+  );
+};
 
-          <div className='dismissSave'>
-            <span>Odustani</span>
-            <span>Spremi</span>
-          </div>
-
-        </div>
-      </form>
-
-    </div>
-  </>
-    )
-}
-
-export default NewSurvey
+export default NewSurvey;
